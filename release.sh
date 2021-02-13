@@ -24,7 +24,7 @@ EOF
                             -d chat_id=$chat_id_rilis \
                             -d "disable_web_page_preview=true" \
                             -d "parse_mode=html" \
-                            -d text="<b>🔥KryPtoN Kernel</b> is <b>Release</b>%0A📱 Device: $DEVICE%0ALinux version: $LINUX_VERSION%0A🆑 Changelog : <code>$CHANGELOG</code>%0A<a href='https://kryptonproject.my.id/'>⬇️ Download</a>"
+                            -d text="<b>🔥KryPtoN Kernel</b> is <b>Release</b>%0A📱 Device: $DEVICE%0A🆑 Changelog : <code>$CHANGELOG</code>%0A<a href='https://kryptonproject.my.id/'>⬇️ Download</a>"
     }
 
 upload
