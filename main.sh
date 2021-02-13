@@ -9,9 +9,9 @@ if [ $DEVICE = vince ]; then
 elif [ $DEVICE = lavender ]; then
     echo "Building for $DEVICE"
     source lavender.sh
-elif [ $DEVICE = joyeuse ]; then
+elif [ $DEVICE = miatoll ]; then
     echo "Building for $DEVICE"
-    source joyeuse.sh
+    source miatoll.sh
 else
     echo "Env DEVICE not setup on script CI"
     exit 1
