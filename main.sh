@@ -31,7 +31,6 @@ function stikerr() {
 
 # Send info plox channel
 function sendinfo() {
-        PATH="/root/tools/clang/bin:${PATH}"
         curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" \
                         -d chat_id=$chat_id \
                         -d "disable_web_page_preview=true" \
