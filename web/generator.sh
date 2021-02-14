@@ -6,7 +6,7 @@ mdsum=$(md5sum /root/AnyKernel/$ZIP_NAME)
 
 # Membuat file .md
 function md() {
-     echo "---" > ${mdname}
+     echo "---" >> ${mdname}
      echo "name: $ZIP_NAME" >> ${mdname}
      echo "date: $tanggalfile" >> ${mdname}
      echo "size: $filesize" >> ${mdname}
