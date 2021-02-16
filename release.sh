@@ -27,5 +27,16 @@ EOF
                             -d text="<b>🔥KryPtoN Kernel</b> is <b>Release</b>%0A📱 Device: $DEVICE%0A🆑 Changelog : <code>$CHANGELOG</code>%0A<a href='https://kryptonproject.my.id/'>⬇️ Download</a>"
     }
 
+function gitpush() {
+        git clone https://github.com/Kry9toN-Project/Kry9toN-Project.github.io webgit
+        cp mdname webgit/_miatoll/
+        cd webgit
+        git add -A
+        git commit -m "[CI] New relese kernel"
+        git push https://${github_cert}github.com/Kry9toN-Project/Kry9toN-Project.github.io
+        cd ROOT_DIR
+}
+
 upload
+gitpush
 # sendRelese

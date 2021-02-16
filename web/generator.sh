@@ -15,7 +15,7 @@ function md() {
      echo "changelog: $CHANGELOG" >> ${mdname}
      echo "categories: $CATEGORIE" >> ${mdname}
      echo "layout: waitting" >> ${mdname}
-     echo "link: https://sourceforge.net/projects/krypton-project/files/$DEVICE/$ZIP_NAME" >> ${mdname}
+     echo "link: https://www.pling.com/p/1406049" >> ${mdname}
      echo "---" >> ${mdname}
 }
 
@@ -27,16 +27,5 @@ function sendmd() {
 			-F "parse_mode=html"
 }
 
-function gitpush() {
-        git clone https://github.com/Kry9toN-Project/Kry9toN-Project.github.io webgit
-        cp mdname webgit/_miatoll/
-        cd webgit
-        git add -A
-        git commit -m "[CI] New relese kernel"
-        git push https://${github_cert}github.com/Kry9toN-Project/Kry9toN-Project.github.io
-        cd ROOT_DIR
-}
-
 md
 sendmd
-gitpush
