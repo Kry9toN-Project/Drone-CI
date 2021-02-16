@@ -7,7 +7,7 @@ mkdir $DEVICE
 cd $DEVICE
 mkdir -p $SF_PATH
 cd $SF_PATH
-put $ZIP_NAME
+put /root/AnyKernel/$ZIP_NAME
 exit
 EOF
     }
@@ -19,12 +19,13 @@ EOF
                             -d chat_id=$chat_id \
                             -d "disable_web_page_preview=true" \
                             -d "parse_mode=html" \
-                            -d text="<b>🔥KryPtoN Kernel</b> is <b>Release</b>%0A📱 Device: $DEVICE%0A🆑 Changelog : <code>$CHANGELOG</code>%0A<a href='https://kryptonproject.my.id/'>⬇️ Download</a>"
+                            -d text="<b>🔥KryPtoN Kernel</b> is <b>Release</b>%0A📱 Device: $DEVICE%0A🆑 Changelog : <code>$(echo $CHANGELOG | sed 's/<br>/%0A/g')</code>%0A<a href='https://kryptonproject.my.id/'>⬇️ Download</a>"
     }
 
 function gitpush() {
+        cd $ROOT_DIR
         git clone https://github.com/Kry9toN-Project/Kry9toN-Project.github.io webgit
-        cp web/$mdname webgit/_miatoll/
+        cp $mdname webgit/_miatoll/
         cd webgit
         git add -A
         git commit -m "[CI] New relese kernel"
