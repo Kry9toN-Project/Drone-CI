@@ -1,7 +1,8 @@
     # Upload
     function upload() {
         cd /root/AnyKernel
-        spawn sshpass -p ${SF_PASS} kry9ton@frs.sourceforge.net:/home/frs/project/krypton-project > /dev/null 2>&1 <<EOF
+        ssh-keyscan -H frs.sourceforge.net >> ~/.ssh/known_hosts
+        sshpass -p ${SF_PASS} kry9ton@frs.sourceforge.net:/home/frs/project/krypton-project > /dev/null 2>&1 <<EOF
 mkdir $DEVICE
 cd $DEVICE
 mkdir -p $SF_PATH
@@ -9,8 +10,6 @@ cd $SF_PATH
 put $ZIP_NAME
 exit
 EOF
-        expect "RSA key fingerprint" {send "yes\r"}
-        expect "#"
     }
 
     # Send info plox channel
@@ -25,12 +24,12 @@ EOF
 
 function gitpush() {
         git clone https://github.com/Kry9toN-Project/Kry9toN-Project.github.io webgit
-        cp mdname webgit/_miatoll/
+        cp $mdname webgit/_miatoll/
         cd webgit
         git add -A
         git commit -m "[CI] New relese kernel"
         git push https://${github_cert}github.com/Kry9toN-Project/Kry9toN-Project.github.io
-        cd ROOT_DIR
+        cd $ROOT_DIR
 }
 
 upload
