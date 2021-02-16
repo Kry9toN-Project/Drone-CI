@@ -9,11 +9,7 @@ cd $SF_PATH
 put $ZIP_NAME
 exit
 EOF
-        expect {
-            "RSA key fingerprint" {
-             send "yes\r"
-            }
-        }
+        expect "RSA key fingerprint" {send "yes\r"}
         expect "#"
     }
 
