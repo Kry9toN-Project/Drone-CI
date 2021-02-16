@@ -86,7 +86,7 @@ DIFF=$(($END - $START))
 paste
 push
 sticker
-if [ $RELEASE = yes ]; then
+if [ $RELEASE = true ]; then
 echo "Release build!"
 source release.sh
 fi
