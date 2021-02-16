@@ -28,4 +28,4 @@ EOF
     }
 
 upload
-sendRelese
+# sendRelese
