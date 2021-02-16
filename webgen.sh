@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 mdname="${ZIP_NAME}.md"
 tanggalfile=$(TZ=Asia/Jakarta date "+%Y/%m/%d")
-filesize=$(du -h /root/AnyKernel/$ZIP_NAME)
-mdsum=$(md5sum /root/AnyKernel/$ZIP_NAME)
+filesize=$(du -h /root/AnyKernel/$ZIP_NAME | awk '{print $1;}')
+mdsum=$(md5sum /root/AnyKernel/$ZIP_NAME | awk '{print $1;}')
 
 # Membuat file .md
 function md() {
