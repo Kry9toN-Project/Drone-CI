@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+ROOT_DIR=$(pwd)
 START=$(date +"%s")
 chat_id="-1001348632957"
 tanggal=$(TZ=Asia/Jakarta date "+%Y%m%d-%H%M")
@@ -42,25 +43,26 @@ function sendinfo() {
 function push() {
         cd /root/AnyKernel
 	curl -F document=@$ZIP_NAME "https://api.telegram.org/bot$token/sendDocument" \
-			-F chat_id="$chat_id" \
+			-F chat_id=$chat_id \
 			-F "disable_web_page_preview=true" \
 			-F "parse_mode=html" \
 			-F caption="Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s)."
+        cd $ROOT_DIR
 }
 
 # Function upload logs to my own TELEGRAM paste
 function paste() {
-        cat build.log | curl -F document=@build.log "https://api.telegram.org/bot$token/sendDocument" \
-			-F chat_id="$chat_id" \
+        curl -F document=@build.log "https://api.telegram.org/bot$token/sendDocument" \
+			-F chat_id=$chat_id \
 			-F "disable_web_page_preview=true" \
-			-F "parse_mode=html" 
+			-F "parse_mode=html"
 }
 
 # Fin Error
 function finerr() {
         paste
         curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" \
-			-d chat_id="$chat_id" \
+			-d chat_id=$chat_id \
 			-d "disable_web_page_preview=true" \
 			-d "parse_mode=markdown" \
 			-d text="Job DroneCI throw an error(s)"
@@ -71,14 +73,14 @@ function zipping() {
         cd /root/AnyKernel
         git checkout ${DEVICE}
         zip -r9 $ZIP_NAME *
-        cd ..
+        cd $ROOT_DIR
 }
 
 sendinfo
 compile
 zipping
 # include webmd
-source webgen.sh
+source web/generator.sh
 END=$(date +"%s")
 DIFF=$(($END - $START))
 paste
