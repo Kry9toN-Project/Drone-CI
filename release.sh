@@ -2,12 +2,12 @@
     function upload() {
         cd /root/AnyKernel
         ssh-keyscan -H frs.sourceforge.net >> ~/.ssh/known_hosts
-        sshpass -p $SF_PASS kry9ton@frs.sourceforge.net:/home/frs/project/krypton-project > /dev/null 2>&1 <<EOF
+        sshpass -p $SF_PASS sftp -oBatchMode=no kry9ton@frs.sourceforge.net:/home/frs/project/krypton-project > /dev/null 2>&1 <<EOF
 mkdir $DEVICE
 cd $DEVICE
 mkdir -p $SF_PATH
 cd $SF_PATH
-put /root/AnyKernel/$ZIP_NAME
+put $ZIP_NAME
 exit
 EOF
     }
