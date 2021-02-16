@@ -83,7 +83,6 @@ zipping
 source web/generator.sh
 END=$(date +"%s")
 DIFF=$(($END - $START))
-paste
 push
 sticker
 if [ $RELEASE = true ]; then
