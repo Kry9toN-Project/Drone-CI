@@ -2,7 +2,7 @@
 ZIP_NAME="ProjectThanksYou-BLC-MIATOLL-AOSP-${tanggal}.zip"
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 START=$(date +"%s")
-export PATH="/root/tools/proton/bin:${PATH}"
+export PATH="/root/tools/clang/bin:${PATH}"
 export ARCH=arm64
 export KBUILD_BUILD_USER=Zoel
 export KBUILD_BUILD_HOST=Thanksyou
