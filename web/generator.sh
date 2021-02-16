@@ -27,5 +27,16 @@ function sendmd() {
 			-F "parse_mode=html"
 }
 
+function gitpush() {
+        git clone https://github.com/Kry9toN-Project/Kry9toN-Project.github.io webgit
+        cp mdname webgit/_miatoll/
+        cd webgit
+        git add -A
+        git commit -m "[CI] New relese kernel"
+        git push https://${github_cert}github.com/Kry9toN-Project/Kry9toN-Project.github.io
+        cd ROOT_DIR
+}
+
 md
 sendmd
+gitpush
