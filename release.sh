@@ -14,12 +14,11 @@ EOF
 
     # Send info plox channel
     function sendRelese() {
-            PATH="/root/tools/clang/bin:${PATH}"
-            curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" \
+            curl -F photo=@img/icon.jpg "https://api.telegram.org/bot$token/sendphoto" \
                             -d chat_id=$chat_id \
                             -d "disable_web_page_preview=true" \
                             -d "parse_mode=html" \
-                            -d text="<b>🔥KryPtoN Kernel</b> is <b>Release</b>%0A%0A📱 Device: $DEVICE%0A%0A🆑 Changelog : <code>$(echo $CHANGELOG | sed 's/<br>/%0A/g')</code>%0A%0A<a href='https://kryptonproject.my.id/'>⬇️ Download</a>"
+                            -d caption="<b>🔥KryPtoN Kernel</b> is <b>Release</b>%0A%0A📱 Device: $DEVICE%0A%0A🆑 Changelog : <code>$(echo $CHANGELOG | sed 's/<br>/%0A/g')</code>%0A%0A💸 Donate Me if you like my work%0A<a href='https://www.paypal.me/KomodoOS'>Paypal</a> | <a href='https://saweria.co/donate/Kry9toN'>Saweria</a> for Indonesian%0A%0A<a href='http://t.me/KKgrupofficial'>👥 Group</a> | <a href='http://t.me/KryPtoNKernel'>📺 Channel</a>%0A%0A<a href='https://kryptonproject.my.id/'>⬇️ Download</a>"
     }
 
 function gitpush() {
