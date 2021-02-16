@@ -78,7 +78,7 @@ sendinfo
 compile
 zipping
 # include webmd
-source web/generator.sh
+source webgen.sh
 END=$(date +"%s")
 DIFF=$(($END - $START))
 paste
