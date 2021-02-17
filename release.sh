@@ -33,6 +33,6 @@ function gitpush() {
         cd $ROOT_DIR
 }
 
-upload
-gitpush
+#upload
+#gitpush
 sendRelese
