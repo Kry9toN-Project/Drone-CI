@@ -21,13 +21,13 @@ fi
 # sticker plox
 function sticker() {
         curl -s -X POST "https://api.telegram.org/bot$token/sendSticker" \
-                        -d sticker="CAADBQADBgADZMYlHVmIXcRlbUt_Ag" \
+                        -d sticker="CAACAgUAAxkBAAEB49tgLH6C7_cNIMnJEqR12lMOvTrYcgACHQIAArCPyVZFBJ4jXRiwjx4E" \
                         -d chat_id=$chat_id
 }
 
 # Stiker Error
 function stikerr() {
-	curl -s -F chat_id=$chat_id -F sticker="CAADBQADzwIAAnBaORAiq8ke6PAt0wI" https://api.telegram.org/bot$token/sendSticker
+	curl -s -F chat_id=$chat_id -F sticker="CAACAgIAAxkBAAEB49lgLH47y0sIlWuX_C-PxEQn9xslpAACAgADBc7CLYQoNSykq4gQHgQ" https://api.telegram.org/bot$token/sendSticker
 }
 
 # Send info plox channel
