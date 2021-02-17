@@ -21,7 +21,15 @@ EOF
                             -F chat_id=$chat_id \
                             -F "disable_web_page_preview=true" \
                             -F "parse_mode=html" \
-                            -F caption="<b>[CI/BOT]🔥KryPtoN Kernel</b> is <b>Release</b>%0A%0A📱 Device: $DEVICE%0A%0A🆑 Changelog : <code>$(echo $CHANGELOG | sed 's/<br>/%0A/g')</code>%0A%0A💸 Donate Me if you like my work%0A<a href='https://www.paypal.me/KomodoOS'>Paypal</a> | <a href='https://saweria.co/donate/Kry9toN'>Saweria</a> for Indonesian%0A%0A<a href='http://t.me/KKgrupofficial'>👥 Group</a> | <a href='http://t.me/KryPtoNKernel'>📺 Channel</a>%0A%0A<a href='https://kryptonproject.my.id/'>⬇️ Download</a>"
+                            -F caption="[CI/BOT]🔥<b>KryPtoN Kernel</b> is <b>Release</b>
+📱 Device: $DEVICE
+🔢 Version: $WEB_VERSIONS
+🆑 Changelog : <code>$(echo $CHANGELOG | sed 's/<br>/\n/g')</code>
+
+💸 Donate Me if you like my work%0A<a href='https://www.paypal.me/KomodoOS'>Paypal</a> | <a href='https://saweria.co/donate/Kry9toN'>Saweria</a> for Indonesian
+<a href='http://t.me/KKgrupofficial'>👥 Group</a> | <a href='http://t.me/KryPtoNKernel'>📺 Channel</a>
+
+<a href='https://kryptonproject.my.id/'>⬇️ Download</a>"
     }
 
 function gitpush() {
