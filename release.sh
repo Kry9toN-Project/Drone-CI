@@ -22,11 +22,13 @@ EOF
                             -F "disable_web_page_preview=true" \
                             -F "parse_mode=html" \
                             -F caption="[CI/BOT]🔥<b>KryPtoN Kernel</b> is <b>Release</b>
+
 📱 Device: $DEVICE
 🔢 Version: $WEB_VERSIONS
 🆑 Changelog : <code>$(echo $CHANGELOG | sed 's/<br>/\n/g')</code>
 
-💸 Donate Me if you like my work%0A<a href='https://www.paypal.me/KomodoOS'>Paypal</a> | <a href='https://saweria.co/donate/Kry9toN'>Saweria</a> for Indonesian
+💸 Donate Me if you like my work
+<a href='https://www.paypal.me/KomodoOS'>Paypal</a> | <a href='https://saweria.co/donate/Kry9toN'>Saweria</a> for Indonesian
 <a href='http://t.me/KKgrupofficial'>👥 Group</a> | <a href='http://t.me/KryPtoNKernel'>📺 Channel</a>
 
 <a href='https://kryptonproject.my.id/'>⬇️ Download</a>"
