@@ -2,10 +2,10 @@
     function upload() {
         cd /root/AnyKernel
         ssh-keyscan -H frs.sourceforge.net >> ~/.ssh/known_hosts
-        sshpass -p "$SF_PASS" sftp -oBatchMode=no kry9ton@frs.sourceforge.net:/home/frs/project/krypton-project > /dev/null 2>&1 <<EOF
+        sshpass -p "$SF_PASS" sftp -oBatchMode=no kry9ton@frs.sourceforge.net:/home/frs/project/krypton-project 2>&1 <<EOF
 mkdir $DEVICE
 cd $DEVICE
-mkdir -p $SF_PATH
+mkdir $SF_PATH
 cd $SF_PATH
 put $ZIP_NAME
 exit
@@ -14,6 +14,7 @@ EOF
 
     # Send info plox channel
     function sendRelese() {
+            cd ROOT_DIR
             curl -F photo=@img/icon.jpg "https://api.telegram.org/bot$token/sendphoto" \
                             -F chat_id=$chat_id \
                             -F "disable_web_page_preview=true" \
