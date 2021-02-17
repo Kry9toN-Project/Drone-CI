@@ -84,6 +84,7 @@ source web/generator.sh
 END=$(date +"%s")
 DIFF=$(($END - $START))
 push
+sleep 4
 sticker
 if [ $RELEASE = true ]; then
 echo "Release build!"
