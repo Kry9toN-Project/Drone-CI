@@ -14,7 +14,7 @@ EOF
 
     # Send info plox channel
     function sendRelese() {
-            cd ROOT_DIR
+            cd $ROOT_DIR
             curl -F photo=@img/icon.jpg "https://api.telegram.org/bot$token/sendphoto" \
                             -F chat_id=$chat_id \
                             -F "disable_web_page_preview=true" \
