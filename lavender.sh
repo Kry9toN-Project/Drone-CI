@@ -20,7 +20,7 @@ function compile() {
                       LOCALVERSION="-${CODENAME}-${tanggal}"
                       CC=clang \
                       CLANG_TRIPLE=aarch64-linux-gnu- \
-                      CROSS_COMPILE=aarch64-linux-gnu- \
+                      CROSS_COMPILE=aarch64-linux-android- \
 		      CROSS_COMPILE_ARM32=arm-linux-gnueabi- 2>&1 | tee build.log
             if ! [ -a $IMAGE ]; then
                 finerr
