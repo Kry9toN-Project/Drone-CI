@@ -10,7 +10,7 @@ START=$(date +"%s")
 
 # Use sdclang
 export PATH="/root/sdclang-10/bin:/root/aosp/gcc32/bin:/root/aosp/gcc/bin:${PATH}"
-export LD_LIBRARY_PATH="/root/sdclang-10/bin/../lib:${PATH}"
+# export LD_LIBRARY_PATH="/root/sdclang-10/bin/../lib:${PATH}"
 
 # Env for kernel
 export ARCH=arm64
