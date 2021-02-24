@@ -1,6 +1,7 @@
 # ENV for device
-CODENAME="Come_Back"
-ZIP_NAME="aLn-${CODENAME}-4.19-BLC-lavender-${tanggal}.zip"
+# CODENAME="Come_Back"
+# TYPE="BLC"
+ZIP_NAME="aLn-${CODENAME}-4.19-${TYPE}-lavender-${tanggal}.zip"
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 START=$(date +"%s")
 export PATH="/root/aosp/clang/bin:/root/aosp/gcc32/bin:/root/aosp/gcc/bin:${PATH}"
@@ -17,7 +18,7 @@ function compile() {
         make O=out ARCH=arm64 lavender_defconfig
         make -j$(nproc --all) O=out \
                       ARCH=arm64 \
-                      LOCALVERSION="-${CODENAME}-${tanggal}" \
+                      LOCALVERSION="-${CODENAME}-${TYPE}-${tanggal}" \
                       CC=clang \
                       CLANG_TRIPLE=aarch64-linux-gnu- \
                       CROSS_COMPILE=aarch64-linux-android- \
