@@ -18,6 +18,13 @@ function compile() {
                       ARCH=arm64 \
                       CC=clang \
 		      LD=ld.lld \
+		      AR=llvm-ar \
+		      NM=llvm-nm \
+		      OBJDUMP=llvm-objdump \
+		      STRIP=llvm-strip \
+		      OBJCOPY=llvm-objcopy \
+		      OBJSIZE=llvm-size \
+		      READELF=llvm-readelf \
                       CROSS_COMPILE=aarch64-linux-gnu- \
 		      CROSS_COMPILE_ARM32=arm-linux-gnueabi- 2>&1 | tee build.log
             if ! [ -a $IMAGE ]; then
