@@ -25,7 +25,8 @@ EOF
 
 📱 Device: $DEVICE
 🔢 Version: $WEB_VERSIONS
-🆑 Changelog : <code>$(echo $CHANGELOG | sed 's/<br>/\n/g')</code>
+🆑 Changelog :
+<code>$(echo $CHANGELOG | sed 's/<br>/\n/g')</code>
 
 💸 Donate Me if you like my work
 <a href='https://www.paypal.me/KomodoOS'>Paypal</a> | <a href='https://saweria.co/donate/Kry9toN'>Saweria</a> for Indonesian
