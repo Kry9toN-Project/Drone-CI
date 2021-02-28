@@ -37,6 +37,7 @@ EOF
 function gitpush() {
         cd $ROOT_DIR
         git clone https://github.com/Kry9toN-Project/Kry9toN-Project.github.io webgit
+        mkdir webgit/_${DEVICE}/
         cp $mdname webgit/_${DEVICE}/
         cd webgit
         git add -A
