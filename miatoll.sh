@@ -1,5 +1,6 @@
 # ENV for device
-ZIP_NAME="ProjectThanksYou-BLC-MIATOLL-AOSP-${tanggal}.zip"
+CODENAME="PerfSun"
+ZIP_NAME="${CODENAME}-BLC-MIATOLL-AOSP-${tanggal}.zip"
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 START=$(date +"%s")
 export PATH="/root/tools/clang/bin:${PATH}"
@@ -16,6 +17,7 @@ function compile() {
         make O=out ARCH=arm64 cust_defconfig
         make -j$(nproc --all) O=out \
                       ARCH=arm64 \
+		      LOCALVERSION="-${CODENAME}-${tanggal}" \
                       CC=clang \
 		      LD=ld.lld \
 		      AR=llvm-ar \
