@@ -1,5 +1,4 @@
 # ENV for device
-CODENAME="PerfSun"
 ZIP_NAME="${CODENAME}-BLC-MIATOLL-AOSP-${tanggal}.zip"
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 START=$(date +"%s")
