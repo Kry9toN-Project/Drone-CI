@@ -10,7 +10,7 @@ if [ $DEVICE = vince ]; then
 elif [ $DEVICE = lavender ]; then
     echo "Building for $DEVICE"
     source lavender.sh
-elif [ $DEVICE = miatoll ]; then
+elif [ $DEVICE = miatoll ] || [ $DEVICE = miatoll_miui ]; then
     echo "Building for $DEVICE"
     source miatoll.sh
 else
