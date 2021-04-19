@@ -13,7 +13,7 @@ CATEGORIE="MIUI"
 
 # Compile plox
 function compile() {
-        make O=out ARCH=arm64 cust_defconfig
+        make O=out ARCH=arm64 perf_defconfig
         make -j$(nproc --all) O=out \
                       ARCH=arm64 \
 		      LOCALVERSION="-${CODENAME}-${tanggal}" \
