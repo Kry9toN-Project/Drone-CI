@@ -4,7 +4,7 @@ export ARCH=arm64
 export KBUILD_BUILD_USER=root
 export KBUILD_BUILD_HOST=KryPtoN-Project
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
-ZIP_NAME="KryPtoN-vince-AOSP4.9-${tanggal}.zip"
+ZIP_NAME="KryPtoN-vince-${CODENAME}-4.9-${DRONE_REPO_BRANCH}-${tanggal}.zip"
 SF_PATH="4.9/$DRONE_REPO_BRANCH"
 
 # path link web
@@ -17,6 +17,7 @@ function compile() {
         make -j$(nproc --all) O=out \
                       ARCH=arm64 \
                       CC=clang \
+		      LOCALVERSION="-${CODENAME}-${tanggal}" \
                       CLANG_TRIPLE=aarch64-linux-gnu- \
                       CROSS_COMPILE=aarch64-linux-gnu- \
                       CROSS_COMPILE_ARM32=arm-linux-gnueabi- 2>&1 | tee build.log
