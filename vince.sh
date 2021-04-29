@@ -14,7 +14,6 @@ CATEGORIE="vince/4.9"
 # Compile plox
 function compile() {
         make O=out ARCH=arm64 vince-krypton_defconfig
-        PATH="/root/tools/clang/bin:${PATH}" \
         make -j$(nproc --all) O=out \
                       ARCH=arm64 \
                       CC=clang \
