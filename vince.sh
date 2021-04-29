@@ -1,6 +1,6 @@
 # ENV for device
-export PATH="/root/tools/clang13/bin:${PATH}"
-export LD_LIBRARY_PATH="/root/tools/clang13/bin/../lib:$PATH"
+export PATH="/root/tools/clang/bin:${PATH}"
+export LD_LIBRARY_PATH="/root/tools/clang/bin/../lib:$PATH"
 export ARCH=arm64
 export KBUILD_BUILD_USER=root
 export KBUILD_BUILD_HOST=KryPtoN-Project
