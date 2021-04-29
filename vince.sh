@@ -1,6 +1,5 @@
 # ENV for device
 export PATH="/root/tools/clang13/bin:${PATH}"
-export LD_LIBRARY_PATH="/root/tools/clang13/bin/../lib:$PATH"
 export ARCH=arm64
 export KBUILD_BUILD_USER=root
 export KBUILD_BUILD_HOST=KryPtoN-Project
@@ -14,14 +13,20 @@ CATEGORIE="vince/4.9"
 # Compile plox
 function compile() {
         make O=out ARCH=arm64 vince-krypton_defconfig
-        PATH="/root/tools/clang/bin:${PATH}" \
         make -j$(nproc --all) O=out \
                       ARCH=arm64 \
-                      CC=clang \
 		      LOCALVERSION="-${CODENAME}-${tanggal}" \
-                      CLANG_TRIPLE=aarch64-linux-gnu- \
+                      CC=clang \
+		      LD=ld.lld \
+		      AR=llvm-ar \
+		      NM=llvm-nm \
+		      OBJDUMP=llvm-objdump \
+		      STRIP=llvm-strip \
+		      OBJCOPY=llvm-objcopy \
+		      OBJSIZE=llvm-size \
+		      READELF=llvm-readelf \
                       CROSS_COMPILE=aarch64-linux-gnu- \
-                      CROSS_COMPILE_ARM32=arm-linux-gnueabi- 2>&1 | tee build.log
+		      CROSS_COMPILE_ARM32=arm-linux-gnueabi- 2>&1 | tee build.log
             if ! [ -a $IMAGE ]; then
                 finerr
 		stikerr
