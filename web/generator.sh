@@ -10,7 +10,7 @@ function md() {
      echo "name: $ZIP_NAME" >> ${mdname}
      echo "date: $tanggalfile" >> ${mdname}
      echo "size: $filesize" >> ${mdname}
-     echo "version: $WEB_VERSIONS" >> ${mdname}
+     echo "version: $CODENAME" >> ${mdname}
      echo "md5: $mdsum" >> ${mdname}
      echo "changelog: $CHANGELOG" >> ${mdname}
      echo "categories: $CATEGORIE" >> ${mdname}
