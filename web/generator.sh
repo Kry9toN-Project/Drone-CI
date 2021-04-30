@@ -3,6 +3,7 @@ mdname="${ZIP_NAME}.md"
 tanggalfile=$(TZ=Asia/Jakarta date "+%Y/%m/%d")
 filesize=$(du -h /root/AnyKernel/$ZIP_NAME | awk '{print $1;}')
 mdsum=$(md5sum /root/AnyKernel/$ZIP_NAME | awk '{print $1;}')
+LINK_SF=https://sourceforge.net/projects/krypton-project/files/${DEVICE}/${SF_PATH}/${ZIP_NAME}
 
 # Membuat file .md
 function md() {
@@ -15,7 +16,7 @@ function md() {
      echo "changelog: $CHANGELOG" >> ${mdname}
      echo "categories: $CATEGORIE" >> ${mdname}
      echo "layout: waitting" >> ${mdname}
-     echo "link: https://www.pling.com/p/1406049" >> ${mdname}
+     echo "link: $LINK_SF" >> ${mdname}
      echo "---" >> ${mdname}
 }
 
