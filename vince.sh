@@ -1,6 +1,6 @@
 # ENV for device
-export PATH="/root/tools/clang13/bin:${PATH}"
-export LD_LIBRARY_PATH="/root/tools/clang13/bin/../lib:$PATH"
+export PATH="/root/tools/clang/bin:${PATH}"
+export LD_LIBRARY_PATH="/root/tools/clang/bin/../lib:$PATH"
 export ARCH=arm64
 export KBUILD_BUILD_USER=root
 export KBUILD_BUILD_HOST=KryPtoN-Project
@@ -14,7 +14,6 @@ CATEGORIE="vince/4.9"
 # Compile plox
 function compile() {
         make O=out ARCH=arm64 vince-krypton_defconfig
-        PATH="/root/tools/clang/bin:${PATH}" \
         make -j$(nproc --all) O=out \
                       ARCH=arm64 \
                       CC=clang \
