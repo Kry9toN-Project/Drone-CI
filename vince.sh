@@ -17,7 +17,7 @@ function compile() {
         make -j$(nproc --all) O=out \
                       ARCH=arm64 \
                       CC=clang \
-		      LOCALVERSION="-${CODENAME}-${tanggal}" \
+		      LOCALVERSION="KryPtoN🔥-${CODENAME}-${tanggal}" \
                       CLANG_TRIPLE=aarch64-linux-gnu- \
                       CROSS_COMPILE=aarch64-linux-gnu- \
                       CROSS_COMPILE_ARM32=arm-linux-gnueabi- 2>&1 | tee build.log
