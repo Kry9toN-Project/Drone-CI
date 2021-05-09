@@ -3,6 +3,12 @@ ROOT_DIR=$(pwd)
 START=$(date +"%s")
 chat_id="-1001348632957"
 tanggal=$(TZ=Asia/Jakarta date "+%Y%m%d-%H%M")
+mdname="${ZIP_NAME}-Nightly.md"
+tanggalfile=$(TZ=Asia/Jakarta date "+%Y/%m/%d")
+filesize=$(du -h /root/AnyKernel/$ZIP_NAME | awk '{print $1;}')
+mdsum=$(md5sum /root/AnyKernel/$ZIP_NAME | awk '{print $1;}')
+LINK_SF=https://sourceforge.net/projects/krypton-project/files/nightly/${ZIP_NAME}
+
 
 if [ $DEVICE = vince ]; then
     echo "Building for $DEVICE"
@@ -79,6 +85,43 @@ function zipping() {
         cd $ROOT_DIR
 }
 
+# Membuat file .md
+function md() {
+     echo "---" >> ${mdname}
+     echo "name: $ZIP_NAME" >> ${mdname}
+     echo "date: $tanggalfile" >> ${mdname}
+     echo "size: $filesize" >> ${mdname}
+     echo "version: $CODENAME" >> ${mdname}
+     echo "md5: $mdsum" >> ${mdname}
+     echo "categories: nightly" >> ${mdname}
+     echo "layout: waitting" >> ${mdname}
+     echo "link: $LINK_SF" >> ${mdname}
+     echo "---" >> ${mdname}
+}
+
+# Upload
+function upload() {
+    cd /root/AnyKernel
+    ssh-keyscan -H frs.sourceforge.net >> ~/.ssh/known_hosts
+    sshpass -p "$SF_PASS" sftp -oBatchMode=no kry9ton@frs.sourceforge.net:/home/frs/project/krypton-project 2>&1 <<EOF
+mkdir nightly
+cd nightly
+put $ZIP_NAME
+exit
+EOF
+
+function gitpush() {
+    cd $ROOT_DIR
+    git clone https://github.com/Kry9toN-Project/Kry9toN-Project.github.io webgit
+    mkdir webgit/_nightly/
+    cp $mdname webgit/_nightly/
+    cd webgit
+    git add -A
+    git commit -m "[CI] New niglty build kernel"
+    git push https://${github_cert}github.com/Kry9toN-Project/Kry9toN-Project.github.io
+    cd $ROOT_DIR
+}
+
 sendinfo
 compile
 zipping
@@ -87,3 +130,6 @@ DIFF=$(($END - $START))
 push
 sleep 4
 sticker
+md
+upload
+gitpush
