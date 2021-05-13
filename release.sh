@@ -24,7 +24,7 @@ EOF
                             -F caption="[CI/BOT]🔥<b>KryPtoN Kernel</b> is <b>Release</b>
 
 📱 Device: $DEVICE
-🔢 Version: $WEB_VERSIONS
+🔢 Version: $CODENAME
 🆑 Changelog :
 <code>$(echo $CHANGELOG | sed 's/<br>/\n/g')</code>
 
