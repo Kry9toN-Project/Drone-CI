@@ -17,11 +17,7 @@ CATEGORIE="AOSP"
 # Compile plox
 function compile() {
         make O=out ARCH=arm64 cust_defconfig
-        make -j$(nproc --all) O=out \
-                      ARCH=arm64 \
-		      LOCALVERSION="-${CODENAME}-${tanggal}" \
-                      CROSS_COMPILE=aarch64-elf- \
-		      CROSS_COMPILE_ARM32=arm-eabi- 2>&1 | tee build.log
+        make -s -C $(pwd) CROSS_COMPILE=${CROSS_COMPILE_ARM} CROSS_COMPILE_ARM32=${CROSS_COMPILE_ARM32} O=out -j32 2>&1 | tee build.log
             if ! [ -a $IMAGE ]; then
                 finerr
 		stikerr
