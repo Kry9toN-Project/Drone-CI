@@ -2,10 +2,10 @@
 ZIP_NAME="${CODENAME}-BLC-MIATOLL-AOSP-${tanggal}.zip"
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 START=$(date +"%s")
-CROSS_COMPILE="/root/tools/11/bin/aarch64-elf-"
-CROSS_COMPILE_ARM32="/root/tools/arm11/bin/arm-eabi-"
-export CROSS_COMPILE
-export CROSS_COMPILE_ARM32
+GCC="/root/tools/11/bin/aarch64-elf-"
+GCC32="/root/tools/arm11/bin/arm-eabi-"
+export GCC
+export GCC32
 export ARCH=arm64
 export KBUILD_BUILD_USER=Zoel
 export KBUILD_BUILD_HOST=Thanksyou
@@ -16,8 +16,8 @@ CATEGORIE="AOSP"
 
 # Compile plox
 function compile() {
-        make O=out ARCH=arm64 cust_defconfig
-        make -s -C $(pwd) CROSS_COMPILE=${CROSS_COMPILE_ARM} CROSS_COMPILE_ARM32=${CROSS_COMPILE_ARM32} O=out -j32 2>&1 | tee build.log
+        make O=out  cust_defconfig
+        make -s -C $(pwd) CROSS_COMPILE=${GCC} CROSS_COMPILE_ARM32=${GCC32} O=out -j32 2>&1 | tee build.log
             if ! [ -a $IMAGE ]; then
                 finerr
 		stikerr
