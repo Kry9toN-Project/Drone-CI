@@ -16,6 +16,9 @@ elif [ $DEVICE = miatoll ]; then
 elif [ $DEVICE = miatoll_miui ]; then
     echo "Building for $DEVICE"
     source miui.sh
+elif [ $DEVICE = miatoll_gcc ]; then
+    echo "Building for $DEVICE"
+    source miatollgcc.sh
 else
     echo "Env DEVICE not setup on script CI"
     exit 1
