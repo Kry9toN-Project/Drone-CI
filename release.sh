@@ -39,7 +39,7 @@ function gitpush() {
         cd $ROOT_DIR
         git clone https://github.com/Kry9toN-Project/Kry9toN-Project.github.io webgit
         mkdir webgit/_${DEVICE}/
-        cp $mdname webgit/_${DEVICE}/
+        cp $mdname webgit/_${POST_DIR}/
         cd webgit
         git add -A
         git commit -m "[CI] New relese kernel"
