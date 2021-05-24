@@ -6,6 +6,7 @@ GCC="/root/tools/gcc-eva-arm64/bin/aarch64-elf-"
 GCC32="/root/tools/gcc-eva-arm/bin/arm-eabi-"
 export GCC
 export GCC32
+export LD=ld.lld
 export ARCH=arm64
 export KBUILD_BUILD_USER=Zoel
 export KBUILD_BUILD_HOST=Thanksyou
