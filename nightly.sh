@@ -19,6 +19,9 @@ elif [ $DEVICE = lavender ]; then
 elif [ $DEVICE = miatoll ]; then
     echo "Building for $DEVICE"
     source miatoll.sh
+elif [ $DEVICE = miatoll_gcc ]; then
+    echo "Building for $DEVICE"
+    source miatollgcc.sh
 elif [ $DEVICE = miatoll_miui ]; then
     echo "Building for $DEVICE"
     source miui.sh
