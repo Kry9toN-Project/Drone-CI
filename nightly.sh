@@ -112,6 +112,7 @@ cd nightly
 put $ZIP_NAME
 exit
 EOF
+}
 
 function gitpush() {
     cd $ROOT_DIR
