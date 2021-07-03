@@ -3,10 +3,7 @@ ROOT_DIR=$(pwd)
 START=$(date +"%s")
 chat_id="-1001348632957"
 tanggal=$(TZ=Asia/Jakarta date "+%Y%m%d-%H%M")
-mdname="${ZIP_NAME}-Nightly.md"
 tanggalfile=$(TZ=Asia/Jakarta date "+%Y/%m/%d")
-filesize=$(du -h /root/AnyKernel/$ZIP_NAME | awk '{print $1;}')
-mdsum=$(md5sum /root/AnyKernel/$ZIP_NAME | awk '{print $1;}')
 LINK_SF=https://sourceforge.net/projects/krypton-project/files/nightly/${ZIP_NAME}
 
 
@@ -90,6 +87,9 @@ function zipping() {
 
 # Membuat file .md
 function md() {
+     mdname="${ZIP_NAME}-Nightly.md"
+     filesize=$(du -h /root/AnyKernel/$ZIP_NAME | awk '{print $1;}')
+     mdsum=$(md5sum /root/AnyKernel/$ZIP_NAME | awk '{print $1;}')
      echo "---" >> ${mdname}
      echo "name: $ZIP_NAME" >> ${mdname}
      echo "date: $tanggalfile" >> ${mdname}
