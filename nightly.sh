@@ -4,8 +4,6 @@ START=$(date +"%s")
 chat_id="-1001348632957"
 tanggal=$(TZ=Asia/Jakarta date "+%Y%m%d-%H%M")
 tanggalfile=$(TZ=Asia/Jakarta date "+%Y/%m/%d")
-LINK_SF=https://sourceforge.net/projects/krypton-project/files/nightly/${ZIP_NAME}
-
 
 if [ $DEVICE = vince ]; then
     echo "Building for $DEVICE"
@@ -45,7 +43,7 @@ function sendinfo() {
                         -d chat_id=$chat_id \
                         -d "disable_web_page_preview=true" \
                         -d "parse_mode=html" \
-                        -d text="<b>KryPtoN Kernel</b> new build nightly is up%0AStarted on <code>DroneCI</code>%0AFor device <b>${DEVICE}</b>%0Abranch <code>$(git rev-parse --abbrev-ref HEAD)</code> %0AUnder commit <code>$(git log --pretty=format:'"%h : %s"' -1)</code>%0AUsing compiler: <code>$(clang --version | head -n 1 | perl -pe 's/\(https.*?\)//gs' | sed -e 's/  */ /g')</code>%0AStarted on <code>$(TZ=Asia/Jakarta date)</code>%0A<b>DroneCI Status</b> <a href='https://cloud.drone.io/Kry9toN'>here</a>"
+                        -d text="<b>KryPtoN Kernel</b> new build nightly is up%0AStarted on <code>Circle CI</code>%0AFor device <b>${DEVICE}</b>%0Abranch <code>$(git rev-parse --abbrev-ref HEAD)</code> %0AUnder commit <code>$(git log --pretty=format:'"%h : %s"' -1)</code>%0AUsing compiler: <code>$(clang --version | head -n 1 | perl -pe 's/\(https.*?\)//gs' | sed -e 's/  */ /g')</code>%0AStarted on <code>$(TZ=Asia/Jakarta date)</code>%0A<b>DroneCI Status</b> <a href='https://cloud.drone.io/Kry9toN'>here</a>"
 }
 
 # Push kernel to channel
@@ -90,6 +88,7 @@ function md() {
      mdname="${ZIP_NAME}-Nightly.md"
      filesize=$(du -h /root/AnyKernel/$ZIP_NAME | awk '{print $1;}')
      mdsum=$(md5sum /root/AnyKernel/$ZIP_NAME | awk '{print $1;}')
+     LINK_SF=https://sourceforge.net/projects/krypton-project/files/nightly/${ZIP_NAME}
      echo "---" >> ${mdname}
      echo "name: $ZIP_NAME" >> ${mdname}
      echo "date: $tanggalfile" >> ${mdname}
