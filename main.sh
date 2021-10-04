@@ -78,6 +78,7 @@ function finerr() {
 function zipping() {
         cd /root/AnyKernel
         git checkout ${DEVICE}
+	git pull
         zip -r9 $ZIP_NAME *
         cd $ROOT_DIR
 }
