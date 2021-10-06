@@ -1,6 +1,7 @@
 # ENV for device
 ZIP_NAME="${CODENAME}-BLC-MIATOLL-AOSP-${tanggal}.zip"
-IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
+IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz
+IMAGE2=$(pwd)/out/arch/arm64/boot/dtbo.img
 START=$(date +"%s")
 GCC="/root/tools/gcc-eva-arm64/bin/aarch64-elf-"
 GCC32="/root/tools/gcc-eva-arm/bin/arm-eabi-"
@@ -24,5 +25,6 @@ function compile() {
                 exit 1
             fi
         cp $IMAGE /root/AnyKernel/
+        cp $IMAGE2 /root/AnyKernel/
         paste
 }
