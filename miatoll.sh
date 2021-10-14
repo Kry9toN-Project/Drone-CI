@@ -1,5 +1,5 @@
 # ENV for device
-ZIP_NAME="${CODENAME}-BLC-MIATOLL-AOSP-${tanggal}.zip"
+ZIP_NAME="${CODENAME}-A12-BLC-MIATOLL-AOSP-${tanggal}.zip"
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 START=$(date +"%s")
 export PATH="/root/tools/clang/bin:${PATH}"
