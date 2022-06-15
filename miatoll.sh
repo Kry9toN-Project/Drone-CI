@@ -4,8 +4,8 @@ IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 START=$(date +"%s")
 export PATH="/root/tools/clang/bin:${PATH}"
 export ARCH=arm64
-export KBUILD_BUILD_USER=Zoel
-export KBUILD_BUILD_HOST=Thanksyou
+export KBUILD_BUILD_USER=KryPtoN
+export KBUILD_BUILD_HOST=Project
 SF_PATH="AOSP"
 
 # path link web
@@ -13,7 +13,7 @@ CATEGORIE="AOSP"
 
 # Compile plox
 function compile() {
-        make O=out ARCH=arm64 joyeuse_defconfig
+        make O=out ARCH=arm64 ${CONFIG}
         make -j$(nproc --all) O=out \
                       ARCH=arm64 \
 		      LOCALVERSION="-${CODENAME}-${tanggal}" \
