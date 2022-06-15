@@ -2,7 +2,7 @@
 ZIP_NAME="${CODENAME}-A12-BLC-MIATOLL-AOSP-${tanggal}.zip"
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 START=$(date +"%s")
-export PATH="/root/tools/clang13/bin:${PATH}"
+export PATH="/root/tools/proton/bin:${PATH}"
 export ARCH=arm64
 export KBUILD_BUILD_USER=KryPtoN
 export KBUILD_BUILD_HOST=Project
@@ -18,6 +18,7 @@ function compile() {
                       ARCH=arm64 \
 		      LOCALVERSION="-${CODENAME}-${tanggal}" \
                       CC=clang \
+                      LD=ld.lld \
 		      AR=llvm-ar \
 		      NM=llvm-nm \
 		      OBJDUMP=llvm-objdump \
