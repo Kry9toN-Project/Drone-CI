@@ -18,7 +18,6 @@ function compile() {
                       ARCH=arm64 \
 		      LOCALVERSION="-${CODENAME}-${tanggal}" \
                       CC=clang \
-		      LD=ld.lld \
 		      AR=llvm-ar \
 		      NM=llvm-nm \
 		      OBJDUMP=llvm-objdump \
