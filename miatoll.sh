@@ -14,7 +14,7 @@ CATEGORIE="AOSP"
 # Compile plox
 function compile() {
         make O=out ARCH=arm64 ${CONFIG}
-        make -j$(nproc --all) O=out \
+        make -kj$(nproc --all) O=out \
                       ARCH=arm64 \
 		      LOCALVERSION="-${CODENAME}-${tanggal}" \
                       CC=clang \
