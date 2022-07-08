@@ -2,7 +2,7 @@
 ZIP_NAME="${CODENAME}-A12-BLC-MIATOLL-AOSP-${tanggal}.zip"
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz
 START=$(date +"%s")
-export PATH="/root/tools/proton/bin:${PATH}"
+export PATH="/root/tools/avalon/bin:${PATH}"
 export ARCH=arm64
 export KBUILD_BUILD_USER=KryPtoN
 export KBUILD_BUILD_HOST=Project
