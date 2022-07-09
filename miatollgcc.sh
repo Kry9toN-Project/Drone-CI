@@ -3,8 +3,8 @@ ZIP_NAME="${CODENAME}-BLC-MIATOLL-AOSP-${tanggal}.zip"
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz
 IMAGE2=$(pwd)/out/arch/arm64/boot/dtbo.img
 START=$(date +"%s")
-GCC="/root/tools/gcc-eva-arm64/bin/aarch64-elf-"
-GCC32="/root/tools/gcc-eva-arm/bin/arm-eabi-"
+GCC="/root/tools/gcc/bin/aarch64-elf-"
+GCC32="/root/tools/gccarm/bin/arm-eabi-"
 export GCC
 export GCC32
 export ARCH=arm64
