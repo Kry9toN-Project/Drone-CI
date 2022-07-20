@@ -1,6 +1,7 @@
 # ENV for device
 ZIP_NAME="${CODENAME}-A12-BLC-MIATOLL-AOSP-${tanggal}.zip"
-IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz
+IMAGE=$(pwd)/out/arch/arm64/boot/Image
+IMAGE1=$(pwd)/out/arch/arm64/boot/dtbo.img
 START=$(date +"%s")
 export PATH="/root/tools/proton/bin:${PATH}"
 export ARCH=arm64
@@ -34,5 +35,6 @@ function compile() {
                 exit 1
             fi
         cp $IMAGE /root/AnyKernel/
+        cp $IMAGE1 /root/AnyKernel/
         paste
 }
