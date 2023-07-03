@@ -42,7 +42,7 @@ function sendinfo() {
                         -d chat_id=$chat_id \
                         -d "disable_web_page_preview=true" \
                         -d "parse_mode=html" \
-                        -d text="<b>KryPtoN Kernel</b> new build is up%0AStarted on <code>CircleCI</code>%0AFor device <b>${DEVICE}</b>%0Abranch <code>$(git rev-parse --abbrev-ref HEAD)</code> %0AUnder commit <code>$(git log --pretty=format:'"%h : %s"' -1)</code>%0AUsing compiler: <code>$(clang --version | head -n 1 | perl -pe 's/\(https.*?\)//gs' | sed -e 's/  */ /g')</code>%0AStarted on <code>$(TZ=Asia/Jakarta date)</code>%0A<b>CircleCI link build</b> <a href='$CIRCLE_BUILD_URL'>here</a>"
+                        -d text="<b>KryPtoN Kernel</b> new build is up%0AStarted on <code>Github Action</code>%0AFor device <b>${DEVICE}</b>%0Abranch <code>$(git rev-parse --abbrev-ref HEAD)</code> %0AUnder commit <code>$(git log --pretty=format:'"%h : %s"' -1)</code>%0AUsing compiler: <code>$(clang --version | head -n 1 | perl -pe 's/\(https.*?\)//gs' | sed -e 's/  */ /g')</code>%0AStarted on <code>$(TZ=Asia/Jakarta date)</code>"
 }
 
 # Push kernel to channel
