@@ -8,8 +8,8 @@ GCC32="/root/tools/gccarm/bin/arm-eabi-"
 export GCC
 export GCC32
 export ARCH=arm64
-export KBUILD_BUILD_USER=dindascape
-export KBUILD_BUILD_HOST=notabook
+export KBUILD_BUILD_USER=KryPtoN
+export KBUILD_BUILD_HOST=Project
 SF_PATH="AOSP"
 
 # path link web
@@ -17,7 +17,7 @@ CATEGORIE="AOSP"
 
 # Compile plox
 function compile() {
-        make O=out  cust_defconfig
+        make O=out vendor/miatoll-perf_defconfig
         make -s -C $(pwd) CROSS_COMPILE=${GCC} CROSS_COMPILE_ARM32=${GCC32} O=out -j32 2>&1 | tee build.log
             if ! [ -a $IMAGE ]; then
                 finerr
