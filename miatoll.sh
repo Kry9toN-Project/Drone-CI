@@ -19,8 +19,17 @@ function compile() {
                       ARCH=arm64 \
 		      LOCALVERSION="-${CODENAME}-${tanggal}" \
                       CC=clang \
-                      LD=ld.lld \
-                      CROSS_COMPILE=aarch64-linux-gnu- \
+		      LD=ld.lld \
+	              LLVM_IAS=1 \
+	              HOSTLD=ld.lld \
+	              LD_ARM32=ld.lld \
+	              AR=llvm-ar \
+	              NM=llvm-nm \
+	              OBJCOPY=llvm-objcopy \
+	              OBJDUMP=llvm-objdump \
+	              STRIP=llvm-strip \
+	              CLANG_TRIPLE=aarch64-linux-gnu- \
+                      CROSS_COMPILE=llvm- \
 		      CROSS_COMPILE_ARM32=arm-linux-gnueabi- 2>&1 | tee build.log
             if ! [ -a $IMAGE ]; then
                 finerr
