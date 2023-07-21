@@ -1,5 +1,5 @@
 # ENV for device
-ZIP_NAME="${CODENAME}-A12-BLC-MIATOLL-AOSP-${tanggal}.zip"
+ZIP_NAME="KryPtoNKernel-${CODENAME}-$(git rev-parse --abbrev-ref HEAD)-MIATOLL-${tanggal}.zip"
 IMAGE=$(pwd)/out/arch/arm64/boot/Image.gz-dtb
 DTBO=$(pwd)/out/arch/arm64/boot/dtbo.img
 START=$(date +"%s")
