@@ -17,7 +17,7 @@ function compile() {
         make O=out ARCH=arm64 vendor/miatoll-perf_defconfig
         make -kj$(nproc --all) O=out \
                       ARCH=arm64 \
-		      LOCALVERSION="-${CODENAME}-${tanggal}" \
+		      LOCALVERSION="-${CODENAME}-$(git rev-parse --abbrev-ref HEAD)-${tanggal}" \
                       CC=clang \
 		      LD=ld.lld \
 	              LLVM_IAS=1 \
