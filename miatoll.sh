@@ -14,7 +14,7 @@ CATEGORIE="AOSP"
 
 # Compile plox
 function compile() {
-        make O=out ARCH=arm64 vendor/miatoll-perf_defconfig
+        make O=out ARCH=arm64 vendor/xiaomi/miatoll_defconfig
         make -kj$(nproc --all) O=out \
                       ARCH=arm64 \
 		      LOCALVERSION="-${CODENAME}-$(git rev-parse --abbrev-ref HEAD)-${tanggal}" \
